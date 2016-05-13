@@ -1,0 +1,13 @@
+[push]
+    default = simple
+[user]
+    name = yarkov
+    email = hexumg@gmail.com
+[core]
+    editor = /usr/bin/vim
+[merge]
+    log = true
+[alias]
+    l = log --pretty=format:\"%h %ad | %s%Cgreen%d%Creset [%an]\" --graph --date=short
+    co = checkout
+    cob = checkout -b

@@ -1,0 +1,1 @@
+/home/yarkov/.haskell-vim-now/.vimrc
