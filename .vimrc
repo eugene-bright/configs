@@ -187,7 +187,8 @@ endif
 set t_Co=256
 
 " Set utf8 as standard encoding and en_US as the standard language
-set encoding=utf8
+" Not useful with right locale
+" set encoding=utf8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -259,6 +260,20 @@ vmap <leader>p "*p
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f', '')<CR>
 vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
+" }}}
+
+" Colorcolumn {{{
+
+function! Colorcolumn(c)
+    exec "set colorcolumn=" . a:c
+endfunction
+
+vmap <leader>cc :call Colorcolumn(80)<CR>
+nmap <leader>cc :call Colorcolumn(80)<CR>
+
+vmap <leader>cC :call Colorcolumn(0)<CR>
+nmap <leader>cC :call Colorcolumn(0)<CR>
 
 " }}}
 
