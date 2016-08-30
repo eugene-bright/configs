@@ -1,0 +1,13 @@
+URxvt.font:             xft:hack:size=8
+URxvt.background:       Black
+URxvt.foreground:       White
+
+URxvt.scrollBar:          true
+URxvt.scrollBar_right:    true
+URxvt.transpscrollbar:    true
+URxvt.scrollBar_floating: true
+URxvt.saveLines:          10000
+URxvt.scrollTtyOutput:    false
+URxvt.scrollWithBuffer:   true
+URxvt.scrollTtyKeypress:  true
+
