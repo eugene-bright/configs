@@ -1,18 +1,30 @@
-" Plug {{{
+" Dein {{{
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-call plug#begin('~/.vim/plugged')
+" Required:
+set runtimepath+=/home/hexum/.vim/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/home/hexum/.vim')
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
 
 " Themes {{{
 
-Plug 'vim-scripts/wombat256.vim'  " Color theme with dark blue background for coding
+call dein#add('morhetz/gruvbox')
 
 " }}}
 
 " Python {{{
 
-Plug 'klen/python-mode'  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
-Plug 'mitsuhiko/vim-jinja'  " Jinja support for vim
-Plug 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+call dein#add('klen/python-mode')  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
+call dein#add('mitsuhiko/vim-jinja')  " Jinja support for vim
+call dein#add('mitsuhiko/vim-python-combined')  " Combined Python 2/3 for Vim
 
 let g:ycm_python_binary_path = '/usr/bin/python3'
 
@@ -20,32 +32,30 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " YCM {{{
 
-Plug 'Valloric/YouCompleteMe', { 'for': ['cpp', 'python'] }
+call dein#add('Valloric/YouCompleteMe', {'on_ft': ['cpp', 'python']})
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 " }}}
 
 " Haskell {{{
-Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
+call dein#add('neovimhaskell/haskell-vim', {'on_ft': ['haskell']})
 " }}}
 
 " Markups {{{
 
-Plug 'vim-scripts/VOoM'
-Plug 'Rykka/riv.vim'
+call dein#add('vim-scripts/VOoM')
+call dein#add('Rykka/riv.vim')
 
 " }}}
 
 " Interface {{{
 
-Plug 'scrooloose/nerdtree' " File browsing panel
+call dein#add('scrooloose/nerdtree') " File browsing panel
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 " }}}
-
-
-
-call plug#end()
+" Required:
+call dein#end()
 
 " }}}
 
@@ -147,7 +157,10 @@ set mouse=a
 " }}}
 
 " Colors and Fonts {{{
-colorscheme wombat256mod
+let &background = "dark"
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " Enable syntax highlighting
 syntax enable
