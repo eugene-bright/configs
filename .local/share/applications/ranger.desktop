@@ -1,0 +1,10 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=ranger
+Comment=Console file manager
+Exec=/usr/bin/urxvt -e /usr/bin/ranger --selectfile
+Terminal=true
+Categories=System
+MimeType=inode/directory;application/zip;application/x-tar;application/x-rar-compressed

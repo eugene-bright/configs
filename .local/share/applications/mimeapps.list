@@ -1,0 +1,30 @@
+[Added Associations]
+application/dbm=pgModeler.desktop;
+application/vnd.apple.mpegurl=vlc-2.desktop;
+application/x-bittorrent=kde4-ktorrent.desktop;kde4-kget.desktop;
+application/zip=kde4-ark.desktop;7zFM.desktop;
+audio/flac=clementine.desktop;kde4-kmplayer.desktop;smplayer_enqueue.desktop;vlc.desktop;smplayer.desktop;audacity.desktop;
+audio/mpeg=smplayer2_enqueue.desktop;smplayer2.desktop;vlc.desktop;kde4-kmplayer.desktop;
+text/html=google-chrome.desktop;google-chrome-beta.desktop;kfmclient_html.desktop;
+text/x-python=kde4-kate.desktop;kde4-kwrite.desktop;libreoffice-writer.desktop;kde4-words.desktop;
+video/mp4=vlc.desktop;kde4-kmplayer.desktop;kde4-dragonplayer.desktop;
+video/mpeg=vlc.desktop;kde4-kmplayer.desktop;kde4-dragonplayer.desktop;
+video/quicktime=vlc.desktop;kde4-kmplayer.desktop;kde4-dragonplayer.desktop;
+video/x-matroska=vlc.desktop;kde4-kmplayer.desktop;smplayer_enqueue.desktop;kde4-dragonplayer.desktop;smplayer.desktop;
+video/x-ms-asf=vlc.desktop;kde4-kmplayer.desktop;kde4-dragonplayer.desktop;clementine.desktop;
+video/x-ms-wmv=vlc.desktop;kde4-kmplayer.desktop;kde4-dragonplayer.desktop;clementine.desktop;
+x-scheme-handler/mailto=google-chrome.desktop;
+
+[Default Applications]
+text/html=google-chrome.desktop
+x-scheme-handler/mailto=google-chrome.desktop
+image/jpeg=org.kde.gwenview.desktop
+all=/usr/share/applications/org.kde.gwenview.desktop
+image/png=org.kde.gwenview.desktop
+inode/directory=ranger.desktop
+application/zip=ranger.desktop
+application/x-rar-compressed=ranger.desktop
+application/x-tar=ranger.desktop
+
+[Removed Associations]
+text/x-python=eric5.desktop;
