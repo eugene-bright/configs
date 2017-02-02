@@ -25,6 +25,8 @@ inode/directory=ranger.desktop
 application/zip=ranger.desktop
 application/x-rar-compressed=ranger.desktop
 application/x-tar=ranger.desktop
+application/pdf=org.kde.okular.desktop
 
 [Removed Associations]
 text/x-python=eric5.desktop;
+application/pdf=links_-g_%u-links-2.desktop
