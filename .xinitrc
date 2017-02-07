@@ -22,4 +22,10 @@ fi
 setxkbmap -layout "us,ru"
 setxkbmap -option "grp:caps_toggle"
 
+# Enable tap on fast click
+if type synclient 2>&1 > /dev/null
+then
+	synclient TapButton1=1 TapButton2=3 TapButton3=2
+fi
+
 i3
