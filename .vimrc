@@ -4,10 +4,11 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/hexum/.vim/repos/github.com/Shougo/dein.vim
+let &runtimepath = &runtimepath . ',' . expand('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
 " Required:
-call dein#begin('/home/hexum/.vim')
+if dein#load_state(expand('~/.vim/bundles'))
+call dein#begin(expand('~/.vim'))
 
 " Let dein manage dein
 " Required:
@@ -54,8 +55,10 @@ call dein#add('scrooloose/nerdtree') " File browsing panel
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 " }}}
-" Required:
-call dein#end()
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+endif
 
 " }}}
 
