@@ -28,4 +28,6 @@ then
 	synclient TapButton1=1 TapButton2=3 TapButton3=2
 fi
 
+xrandr --output HDMI-1 --right-of eDP-1 --auto
+
 i3

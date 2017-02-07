@@ -160,5 +160,19 @@ bar {
 bindsym $mod+m bar mode toggle
 bindsym Print exec sh -c 'import -window root ~/screens/`date -Isecond`.png'
 
+# Screen locking
+bindsym $mod+Escape exec i3lock
+
 # composer
 #exec --no-startup-id compton --config ~/.config/compton/compton.conf
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+workspace 10 output HDMI-1
