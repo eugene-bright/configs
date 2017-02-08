@@ -2,7 +2,7 @@
     default = simple
 [user]
     name = Eugene Yarkov
-    email = hexumg@gmail.com
+    email = eya@exante.eu
 [core]
     editor = /usr/bin/vim
 [merge]
