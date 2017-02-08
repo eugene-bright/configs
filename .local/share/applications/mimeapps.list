@@ -26,6 +26,10 @@ application/zip=ranger.desktop
 application/x-rar-compressed=ranger.desktop
 application/x-tar=ranger.desktop
 application/pdf=org.kde.okular.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/about=google-chrome.desktop
+x-scheme-handler/unknown=google-chrome.desktop
 
 [Removed Associations]
 text/x-python=eric5.desktop;
