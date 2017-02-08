@@ -23,18 +23,23 @@ call dein#add('morhetz/gruvbox')
 
 " Python {{{
 
-call dein#add('klen/python-mode')  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
-call dein#add('mitsuhiko/vim-jinja')  " Jinja support for vim
-call dein#add('mitsuhiko/vim-python-combined')  " Combined Python 2/3 for Vim
+call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
+call dein#add('mitsuhiko/vim-jinja', {'on_ft': ['python']})  " Jinja support for vim
+call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
 
-let g:ycm_python_binary_path = '/usr/bin/python3'
+call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+call dein#add('python-rope/ropevim', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+
+let g:loaded_python_provider = 1
 
 " }}}
 
 " YCM {{{
 
-call dein#add('Valloric/YouCompleteMe', {'on_ft': ['cpp', 'python']})
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+let g:ycm_python_binary_path = '/usr/bin/python3'
+
+" call dein#add('Valloric/YouCompleteMe', {'on_ft': ['cpp', 'python']})
+" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 " }}}
 
@@ -53,6 +58,8 @@ call dein#add('Rykka/riv.vim')
 
 call dein#add('scrooloose/nerdtree') " File browsing panel
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
+
+call dein#add('bling/vim-airline') " status bar
 
 " }}}
 " If you want to install not installed plugins on startup.
