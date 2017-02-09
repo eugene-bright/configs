@@ -1,0 +1,2 @@
+cd /home/yarkov/exante/soft/test/atp
+nohup ./bin/atp
