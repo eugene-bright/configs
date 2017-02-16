@@ -4,7 +4,7 @@
     name = Eugene Yarkov
     email = eya@exante.eu
 [core]
-    editor = /usr/bin/vim
+	editor = nvim
 [merge]
     log = true
 [alias]
