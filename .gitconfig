@@ -1,12 +1,25 @@
 [push]
     default = simple
+
 [user]
     name = Eugene Yarkov
     email = eya@exante.eu
+
 [core]
-	editor = nvim
+    editor = nvim
+
 [merge]
     log = true
+
+[difftool]
+    prompt = true
+
+[diff]
+    tool = nvimdiff
+
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
 [alias]
     l = log --pretty=format:\"%h %ad | %s%Cgreen%d%Creset [%an]\" --graph --date=short --decorate --tags
     co = checkout
