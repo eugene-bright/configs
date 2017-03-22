@@ -1,19 +1,15 @@
+" Taken here
+" https://herringtondarkholme.github.io/2016/02/26/dein/
+
 " Dein {{{
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+set nocompatible
 
-" Required:
-let &runtimepath = &runtimepath . ',' . expand('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
 
-" Required:
-if dein#load_state(expand('~/.vim/bundles'))
-call dein#begin(expand('~/.vim'))
+call dein#begin(expand('~/.vim/dein')) " plugins' root path
 
 " Let dein manage dein
-" Required:
 call dein#add('Shougo/dein.vim')
-
 
 " Themes {{{
 
@@ -43,31 +39,33 @@ let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " }}}
 
-" Haskell {{{
-call dein#add('neovimhaskell/haskell-vim', {'on_ft': ['haskell']})
-" }}}
-
 " Markups {{{
 
 call dein#add('vim-scripts/VOoM')
 call dein#add('Rykka/riv.vim')
 
 " }}}
-
-" Interface {{{
+j
+" Interface and navigation {{{
 
 call dein#add('scrooloose/nerdtree') " File browsing panel
 nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 call dein#add('bling/vim-airline') " status bar
 
-" }}}
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-endif
+call dein#add('Shougo/unite.vim')
 
 " }}}
+
+call dein#end()
+
+" }}}
+
+" Colors and Fonts {{{
+let &background = "dark"
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " General {{{
 
@@ -527,12 +525,3 @@ endfunction
 vnoremap <silent> <leader>h> :call Pointful()<CR>
 
 " }}}
-
-" Customization {{{
-
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
-" }}}
-
