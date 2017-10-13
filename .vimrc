@@ -30,14 +30,6 @@ let g:loaded_python_provider = 1
 
 " }}}
 
-" YCM {{{
-
-let g:ycm_python_binary_path = '/usr/bin/python3'
-
-" call dein#add('Valloric/YouCompleteMe', {'on_ft': ['cpp', 'python']})
-" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-
-" }}}
 
 " Markups {{{
 
@@ -45,7 +37,7 @@ call dein#add('vim-scripts/VOoM')
 call dein#add('Rykka/riv.vim')
 
 " }}}
-j
+
 " Interface and navigation {{{
 
 call dein#add('scrooloose/nerdtree') " File browsing panel
@@ -312,11 +304,6 @@ noremap <c-l> <c-w>l
 " Disable highlight when <leader><cr> is pressed
 " but preserve cursor coloring
 nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
-augroup haskell
-  autocmd!
-  autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
-  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-augroup END
 
 " Return to last edit position when opening files (You want this!)
 augroup last_edit
@@ -338,10 +325,10 @@ nmap <leader>sj :rightbelow new<CR>
 " Manually create key mappings (to avoid rebinding C-\)
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <leader><C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <leader><C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <leader><C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <leader><C-l> :TmuxNavigateRight<cr>
 
 " don't close buffers when you aren't displaying them
 set hidden
@@ -368,21 +355,6 @@ set laststatus=2
 
 " }}}
 
-" Editing mappings {{{
-
-" Delete trailing white space on save
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-
-augroup whitespace
-  autocmd!
-  autocmd BufWrite *.hs :call DeleteTrailingWS()
-augroup END
-
-" }}}
 
 " Spell checking {{{
 
@@ -512,16 +484,3 @@ nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
 
 " }}}
 
-" Conversion {{{
-
-function! Pointfree()
-  call setline('.', split(system('pointfree '.shellescape(join(getline(a:firstline, a:lastline), "\n"))), "\n"))
-endfunction
-vnoremap <silent> <leader>h. :call Pointfree()<CR>
-
-function! Pointful()
-  call setline('.', split(system('pointful '.shellescape(join(getline(a:firstline, a:lastline), "\n"))), "\n"))
-endfunction
-vnoremap <silent> <leader>h> :call Pointful()<CR>
-
-" }}}
