@@ -4,7 +4,7 @@
 " Dein {{{
 set nocompatible
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
+set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/ " path to dein.vim
 
 call dein#begin(expand('~/.vim/dein')) " plugins' root path
 
