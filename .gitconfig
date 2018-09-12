@@ -2,8 +2,9 @@
     default = simple
 
 [user]
-    name = Eugene Yarkov
-    email = eya@exante.eu
+	name = Eugene Bright
+	email = eugene@bright.gdn
+	signingKey = F3B735670E6C1A4781C3CCE116CC95A407CC0E87
 
 [core]
     editor = nvim
@@ -24,3 +25,15 @@
     l = log --pretty=format:\"%h %ad | %s%Cgreen%d%Creset [%an]\" --graph --date=short --decorate --tags
     co = checkout
     cob = checkout -b
+[commit]
+	gpgsign = true
+[log]
+	showSignature = true
+[rebase]
+	autoSquash = true
+[gpg]
+	program = /usr/bin/gpg2
+[tag]
+	gpgsign = true
+[credential]
+	helper = cache
