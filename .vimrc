@@ -17,12 +17,19 @@ call dein#add('morhetz/gruvbox')
 
 " }}}
 
-" Python {{{
+" Deoplete {{{
 
-call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
+call dein#add('Shougo/deoplete.nvim')
+let g:deoplete#enable_at_startup = 1
+
+" }}}
+
+"}} Python {{{
+
+" call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
+" call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+
 call dein#add('mitsuhiko/vim-jinja', {'on_ft': ['python']})  " Jinja support for vim
-call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
-
 call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
 call dein#add('python-rope/ropevim', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
 
@@ -30,6 +37,14 @@ let g:loaded_python_provider = 1
 
 " }}}
 
+" Clang {{{
+
+call dein#add('zchee/deoplete-clang', {'on_ft': ['c', 'c++']})
+let g:deoplete#sources#clang#libclang_path='/usr/lib64/llvm/5/lib64/libclang.so'
+let g:deoplete#sources#clang#clang_header='/usr/lib64/llvm/'
+
+
+"}}}
 
 " Markups {{{
 
