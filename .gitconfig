@@ -32,7 +32,7 @@
 [rebase]
 	autoSquash = true
 [gpg]
-	program = /usr/bin/gpg2
+	program = /usr/bin/gpg
 [tag]
 	gpgsign = true
 [credential]
