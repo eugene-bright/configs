@@ -24,7 +24,7 @@ let g:deoplete#enable_at_startup = 1
 
 " }}}
 
-"}} Python {{{
+" Python {{{
 
 " call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
 " call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
@@ -67,12 +67,6 @@ call dein#add('Shougo/unite.vim')
 call dein#end()
 
 " }}}
-
-" Colors and Fonts {{{
-let &background = "dark"
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_italic=1
-colorscheme gruvbox
 
 " General {{{
 
@@ -369,7 +363,6 @@ noremap <leader>b<space> :CtrlPBuffer<cr>
 set laststatus=2
 
 " }}}
-
 
 " Spell checking {{{
 
