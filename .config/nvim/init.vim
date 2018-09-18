@@ -67,6 +67,14 @@ if dein#load_state('~/.cache/dein')
 
     " }}}
 
+    " TagBar {{{
+
+    call dein#add('majutsushi/tagbar')
+    nmap <F8> :TagbarToggle<CR>
+
+    " }}}
+
+
     call dein#end()
     call dein#save_state()
 
