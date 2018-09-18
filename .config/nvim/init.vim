@@ -33,7 +33,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mitsuhiko/vim-jinja', {'on_ft': ['python']})  " Jinja support for vim
     call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
     call dein#add('python-rope/ropevim', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+    call dein#add('davidhalter/jedi-vim', {'on_ft': ['python']})
 
+    let g:jedi#completions_enabled = 0
     let g:loaded_python_provider = 1
 
     " }}}
