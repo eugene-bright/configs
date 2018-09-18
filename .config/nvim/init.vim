@@ -6,66 +6,69 @@ set nocompatible
 
 set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim/ " path to dein.vim
 
-call dein#begin(expand('~/.vim/dein')) " plugins' root path
+if dein#load_state('~/.cache/dein')
+    call dein#begin(expand('~/.cache/dein')) " plugins' root path
 
-" Let dein manage dein
-call dein#add('Shougo/dein.vim')
+    " Let dein manage dein
+    call dein#add('Shougo/dein.vim')
 
-" Themes {{{
+    " Themes {{{
 
-call dein#add('morhetz/gruvbox')
+    call dein#add('morhetz/gruvbox')
 
-" }}}
+    " }}}
 
-" Deoplete {{{
+    " Deoplete {{{
 
-call dein#add('Shougo/deoplete.nvim')
-let g:deoplete#enable_at_startup = 1
+    call dein#add('Shougo/deoplete.nvim')
+    let g:deoplete#enable_at_startup = 1
 
-" }}}
+    " }}}
 
-" Python {{{
+    " Python {{{
 
-" call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
-" call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+    " call dein#add('klen/python-mode', {'on_ft': ['python']})  " Pyhon mode (docs, refactor, lints, highlighting, run and ipdb and more)
+    " call dein#add('mitsuhiko/vim-python-combined', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
 
-call dein#add('mitsuhiko/vim-jinja', {'on_ft': ['python']})  " Jinja support for vim
-call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
-call dein#add('python-rope/ropevim', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+    call dein#add('mitsuhiko/vim-jinja', {'on_ft': ['python']})  " Jinja support for vim
+    call dein#add('zchee/deoplete-jedi', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
+    call dein#add('python-rope/ropevim', {'on_ft': ['python']})  " Combined Python 2/3 for Vim
 
-let g:loaded_python_provider = 1
+    let g:loaded_python_provider = 1
 
-" }}}
+    " }}}
 
-" Clang {{{
+    " Clang {{{
 
-call dein#add('zchee/deoplete-clang', {'on_ft': ['c', 'c++']})
-let g:deoplete#sources#clang#libclang_path='/usr/lib64/llvm/5/lib64/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib64/llvm/'
+    call dein#add('zchee/deoplete-clang', {'on_ft': ['c', 'c++']})
+    let g:deoplete#sources#clang#libclang_path='/usr/lib64/llvm/5/lib64/libclang.so'
+    let g:deoplete#sources#clang#clang_header='/usr/lib64/llvm/'
 
 
-"}}}
+    "}}}
 
-" Markups {{{
+    " Markups {{{
 
-call dein#add('vim-scripts/VOoM')
-call dein#add('Rykka/riv.vim')
+    call dein#add('vim-scripts/VOoM')
+    call dein#add('Rykka/riv.vim')
 
-" }}}
+    " }}}
 
-" Interface and navigation {{{
+    " Interface and navigation {{{
 
-call dein#add('scrooloose/nerdtree') " File browsing panel
-nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
+    call dein#add('scrooloose/nerdtree') " File browsing panel
+    nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
-call dein#add('bling/vim-airline') " status bar
+    call dein#add('bling/vim-airline') " status bar
 
-call dein#add('Shougo/unite.vim')
+    call dein#add('Shougo/unite.vim')
 
-" }}}
+    " }}}
 
-call dein#end()
+    call dein#end()
+    call dein#save_state()
 
+endif
 " }}}
 
 " General {{{
