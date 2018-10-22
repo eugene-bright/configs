@@ -1,0 +1,6 @@
+neovim
+python-language-server
+jedi
+pyls-mypy
+pycodestyle
+
