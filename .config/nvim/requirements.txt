@@ -1,5 +1,5 @@
 neovim
-python-language-server
+python-language-server[all]
 jedi
 pyls-mypy
 pycodestyle

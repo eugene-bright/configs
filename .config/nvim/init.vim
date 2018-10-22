@@ -1,11 +1,19 @@
-" Taken here
-" https://herringtondarkholme.github.io/2016/02/26/dein/
-
-" Plug {{{
 set nocompatible
 
-call plug#begin('~/.local/share/nvim/plugged')
+" Set leader key
+" must be done before first <Leader> usage
+let mapleader = ","
+let g:mapleader = ","
 
+" Allow the normal use of "," by pressing it twice
+noremap ,, ,
+
+" Leader key timeout
+set tm=2000
+
+" Plug {{{
+
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Themes {{{
 
@@ -15,31 +23,28 @@ Plug 'morhetz/gruvbox'
 
 " Deoplete {{{
 
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 let g:deoplete#enable_at_startup = 1
 
 " }}}
 
-" Python {{{
+" {{{ Language Client neovim
 
-Plug 'mitsuhiko/vim-jinja', {'for': ['python']}  " Jinja support for vim
-Plug 'zchee/deoplete-jedi', {'for': ['python']}  " Combined Python 2/3 for Vim
-Plug 'python-rope/ropevim', {'for': ['python']}  " Combined Python 2/3 for Vim
-Plug 'davidhalter/jedi-vim', {'for': ['python']}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
-let g:jedi#completions_enabled = 0
-let g:loaded_python_provider = 1
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['~/.local/bin/pyls'],
+    \ }
+
+nnoremap <silent> <Leader>ls :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> <Leader>K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
 " }}}
-
-" Clang {{{
-
-Plug 'zchee/deoplete-clang', {'for': ['c', 'c++']}
-let g:deoplete#sources#clang#libclang_path='/usr/lib64/llvm/5/lib64/libclang.so'
-let g:deoplete#sources#clang#clang_header='/usr/lib64/llvm/'
-
-
-"}}}
 
 " Markups {{{
 
@@ -51,7 +56,6 @@ Plug 'Rykka/riv.vim'
 " Interface and navigation {{{
 
 Plug 'scrooloose/nerdtree' " File browsing panel
-nmap <silent> <special> <F2> :NERDTreeToggle<RETURN>
 
 Plug 'bling/vim-airline' " status bar
 
@@ -68,6 +72,11 @@ nmap <F8> :TagbarToggle<CR>
 
 
 call plug#end()
+" }}}
+
+" {{{ Language client config
+
+
 " }}}
 
 " General {{{
@@ -90,17 +99,6 @@ set history=700
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
-
-" Leader key timeout
-set tm=2000
-
-" Allow the normal use of "," by pressing it twice
-noremap ,, ,
 
 " Always show current position
 set ruler
@@ -155,13 +153,13 @@ if &term =~ '256color'
 endif
 
 " Force redraw
-map <silent> <leader>r :redraw!<CR>
+map <silent> <Leader>r :redraw!<CR>
 
 " Turn mouse mode on
-nnoremap <leader>ma :set mouse=a<cr>
+nnoremap <Leader>ma :set mouse=a<cr>
 
 " Turn mouse mode off
-nnoremap <leader>mo :set mouse=<cr>
+nnoremap <Leader>mo :set mouse=<cr>
 
 " Default to mouse mode on
 set mouse=r
@@ -235,10 +233,10 @@ augroup sourcing
 augroup END
 
 " Open file prompt with current path
-nmap <leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
+nmap <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
 
 " Show undo tree
-nmap <silent> <leader>u :GundoToggle<CR>
+nmap <silent> <Leader>u :GundoToggle<CR>
 
 " Fuzzy find files
 nnoremap <silent> <Leader><space> :CtrlP<CR>
@@ -269,12 +267,12 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Copy and paste to os clipboard
-nmap <leader>y "+y
-vmap <leader>y "+y
-nmap <leader>d "+d
-vmap <leader>d "+d
-nmap <leader>p "+p
-vmap <leader>p "+p
+nmap <Leader>y "+y
+vmap <Leader>y "+y
+nmap <Leader>d "+d
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+vmap <Leader>p "+p
 
 " }}}
 
@@ -293,11 +291,11 @@ function! Colorcolumn(c)
     exec "set colorcolumn=" . a:c
 endfunction
 
-vmap <leader>cc :call Colorcolumn(80)<CR>
-nmap <leader>cc :call Colorcolumn(80)<CR>
+vmap <Leader>cc :call Colorcolumn(80)<CR>
+nmap <Leader>cc :call Colorcolumn(80)<CR>
 
-vmap <leader>cC :call Colorcolumn(0)<CR>
-nmap <leader>cC :call Colorcolumn(0)<CR>
+vmap <Leader>cC :call Colorcolumn(0)<CR>
+nmap <Leader>cC :call Colorcolumn(0)<CR>
 
 " }}}
 
@@ -312,9 +310,9 @@ noremap <c-k> <c-w>k
 noremap <c-j> <c-w>j
 noremap <c-l> <c-w>l
 
-" Disable highlight when <leader><cr> is pressed
+" Disable highlight when <Leader><cr> is pressed
 " but preserve cursor coloring
-nmap <silent> <leader><cr> :noh\|hi Cursor guibg=red<cr>
+nmap <silent> <Leader><cr> :noh\|hi Cursor guibg=red<cr>
 
 " Return to last edit position when opening files (You want this!)
 augroup last_edit
@@ -328,34 +326,34 @@ augroup END
 set viminfo^=%
 
 " Open window splits in various places
-nmap <leader>sh :leftabove  vnew<CR>
-nmap <leader>sl :rightbelow vnew<CR>
-nmap <leader>sk :leftabove  new<CR>
-nmap <leader>sj :rightbelow new<CR>
+nmap <Leader>sh :leftabove  vnew<CR>
+nmap <Leader>sl :rightbelow vnew<CR>
+nmap <Leader>sk :leftabove  new<CR>
+nmap <Leader>sj :rightbelow new<CR>
 
 " Manually create key mappings (to avoid rebinding C-\)
 let g:tmux_navigator_no_mappings = 1
 
-nnoremap <silent> <leader><C-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <leader><C-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <leader><C-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <leader><C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <Leader><C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <Leader><C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <Leader><C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <Leader><C-l> :TmuxNavigateRight<cr>
 
 " don't close buffers when you aren't displaying them
 set hidden
 
 " previous buffer, next buffer
-nnoremap <leader>bp :bp<cr>
-nnoremap <leader>bn :bn<cr>
+nnoremap <Leader>bp :bp<cr>
+nnoremap <Leader>bn :bn<cr>
 
 " close every window in current tabview but the current
-nnoremap <leader>bo <c-w>o
+nnoremap <Leader>bo <c-w>o
 
 " delete buffer without closing pane
-noremap <leader>bd :Bd<cr>
+noremap <Leader>bd :Bd<cr>
 
 " fuzzy find buffers
-noremap <leader>b<space> :CtrlPBuffer<cr>
+noremap <Leader>b<space> :CtrlPBuffer<cr>
 
 " }}}
 
@@ -371,7 +369,7 @@ set laststatus=2
 set spell spelllang=en_us,ru_yo
 
 " Pressing ,ss will toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+map <Leader>ss :setlocal spell!<cr>
 
 " }}}
 
@@ -432,8 +430,8 @@ function! ToggleFindNerd()
 endfunction
 
 " If nerd tree is closed, find current file, if open, close it
-nmap <silent> <leader>f <ESC>:call ToggleFindNerd()<CR>
-nmap <silent> <leader>F <ESC>:NERDTreeToggle<CR>
+nmap <silent> <Leader>f <ESC>:call ToggleFindNerd()<CR>
+nmap <silent> <Leader>F <ESC>:NERDTreeToggle<CR>
 
 " }}}
 
@@ -448,7 +446,7 @@ map <Leader>a, :Align ,<CR>
 " Align on pipes
 map <Leader>a<bar> :Align <bar><CR>
 " Prompt for align character
-map <leader>ap :Align
+map <Leader>ap :Align
 
 
 " }}}
@@ -470,11 +468,11 @@ function! NonintrusiveGitGrep(term)
 endfunction
 
 command! -nargs=1 GGrep call NonintrusiveGitGrep(<q-args>)
-nmap <leader>gs :Gstatus<CR>
-nmap <leader>gg :copen<CR>:GGrep 
-nmap <leader>gl :Extradite!<CR>
-nmap <leader>gd :Gdiff<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <Leader>gits :Gstatus<CR>
+nmap <Leader>gitg :copen<CR>:GGrep 
+nmap <Leader>gitl :Extradite!<CR>
+nmap <Leader>gitd :Gdiff<CR>
+nmap <Leader>gitb :Gblame<CR>
 
 function! CommittedFiles()
   " Clear quickfix list
@@ -490,7 +488,7 @@ function! CommittedFiles()
 endfunction
 
 " Show list of last-committed files
-nnoremap <silent> <leader>g? :call CommittedFiles()<CR>:copen<CR>
+nnoremap <silent> <Leader>g? :call CommittedFiles()<CR>:copen<CR>
 
 " }}}
 
