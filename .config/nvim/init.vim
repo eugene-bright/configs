@@ -28,21 +28,33 @@ let g:deoplete#enable_at_startup = 1
 
 " }}}
 
-" {{{ Language Client neovim
+" {{{ ALE
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'w0rp/ale'
 
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['~/.local/bin/pyls'],
-    \ }
 
-nnoremap <silent> <Leader>ls :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <Leader>K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <Leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+let g:ale_completion_enabled = 1
+let g:ale_lint_on_save = 1
+
+let g:ale_sign_warning = 'W>'
+let g:ale_sign_error = 'E>'
+
+let g:ale_go_langserver_executable  =
+            \ expand('~/go/bin/go-langserver')
+let g:ale_linters = {
+\   'go': [
+\       'golangserver',
+\       'gofmt',
+\       'golint',
+\       'govet',],
+\}
+
+nmap <silent> [e <Plug>(ale_previous_wrap)
+nmap <silent> ]e <Plug>(ale_next_wrap)
+
+nmap <silent> <leader>gd <Plug>(ale_go_to_definition)
+
+let $GOPATH = '~/go:' . split($PWD, 'src')[0]
 
 " }}}
 
@@ -100,11 +112,6 @@ let g:tagbar_type_go = {
 
 
 call plug#end()
-" }}}
-
-" {{{ Language client config
-
-
 " }}}
 
 " General {{{
