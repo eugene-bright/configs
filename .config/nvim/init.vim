@@ -11,6 +11,9 @@ noremap ,, ,
 " Leader key timeout
 set tm=2000
 
+" Prevent width bouncing on error/warning highlight
+set signcolumn="yes"
+
 " Plug {{{
 
 call plug#begin('~/.local/share/nvim/plugged')
