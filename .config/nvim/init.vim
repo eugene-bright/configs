@@ -50,6 +50,9 @@ let g:ale_linters = {
 \       'gofmt',
 \       'golint',
 \       'govet',],
+\   'python': [
+\       'pyls',
+\   ]
 \}
 
 nmap <silent> [e <Plug>(ale_previous_wrap)
