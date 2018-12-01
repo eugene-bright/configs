@@ -116,6 +116,11 @@ let g:tagbar_type_go = {
 
 " }}}
 
+" Polygot {{{
+
+Plug 'sheerun/vim-polyglot'
+
+" }}}
 
 call plug#end()
 " }}}
