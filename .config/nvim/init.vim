@@ -122,6 +122,25 @@ Plug 'sheerun/vim-polyglot'
 
 " }}}
 
+" Markdown preview {{{
+
+Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
+
+function ToggleMD()
+    let l:current_status = get(b:, 'mdpreview', 0)
+    if l:current_status
+        let b:mdpreview = 0
+        execute 'MarkdownPreviewStop'
+    else
+        let b:mdpreview = 1
+        execute 'MarkdownPreview'
+    endif
+endfunction
+
+map <silent> <F12> :call ToggleMD()<CR>
+
+" }}}
+
 call plug#end()
 " }}}
 
